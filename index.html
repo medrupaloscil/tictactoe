@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Move Mouse</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.1/control_utils.css" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.1/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.1/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.2/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.1/hands.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+  <video class="input_video"></video>
+  <div class="waiting">System loading...</div>
+  <div class="game">
+    <div class="score">
+      <p>Computer: <span class="computer-score">0</span></p>
+      <p>You: <span class="player-score">0</span></p>
+    </div>
+    <div class="content">
+      <div class="computer-play">Waiting...</div>
+      <div class="player-play"></div>
+    </div>
+  </div>
+</body>
+</html>
+<script src="./script.js"></script>

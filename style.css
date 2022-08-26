@@ -1,0 +1,61 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #373536;
+  background-image: url('./img/bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.input_video {
+  display: none;
+}
+.waiting {
+  font-size: 60px;
+}
+.score {
+  display: flex;
+  font-size: 50px;
+  width: 100%;
+}
+.score p {
+  padding: 10px 30px;
+  flex: 1;
+}
+.score p:not(:last-child) {
+  border-right: 3px solid #fff;
+  text-align: right;
+}
+.score p span {
+  font-weight: bold;
+}
+.game {
+  width: 100%;
+  display: none;
+}
+.game .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.game .content div {
+  border: 1px solid #fff;
+  margin: 0 50px;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+.game .content img {
+  height: 200px;
+  width: 200px;
+  object-fit: contain;
+}
