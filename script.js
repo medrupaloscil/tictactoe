@@ -23,46 +23,35 @@ function getDistance(pos1, pos2) {
 }
 
 function getComputer() {
+  time--;
   if (time > 0) {
-    time--;
     computerImg.remove();
     computer.innerText = time + 1;
   } else if (time === 0) {
-    time--;
     computer.innerText = '';
     const computerSign = Math.floor(Math.random() * 3);
     computerImg.src = `./img/${signs[computerSign]}.png`;
     computer.appendChild(computerImg);
     switch (computerSign) {
       case 0:
-        if (last === 1) {
-          cs++;
-        } else if (last === 2) {
-          ps++;
-        }
+        if (last === 1) cs++;
+        if (last === 2) ps++;
         break;
       case 1:
-        if (last === 0) {
-          ps++;
-        } else if (last === 2) {
-          cs++;
-        }
+        if (last === 0) ps++;
+        if (last === 2) cs++;
         break;
       case 2:
-        if (last === 0) {
-          cs++;
-        } else if (last === 1) {
-          ps++;
-        }
+        if (last === 0) cs++;
+        if (last === 1) ps++;
         break;
       default:
         break;
     }
     playerScore.innerText = ps;
     computerScore.innerText = cs;
-  } else {
-    time--;
-    if (time == -3) time = 5;
+  } else if (time == -2) {
+    time = 5;
   }
 }
 
@@ -79,15 +68,10 @@ function onResults(results) {
       return Math.abs(getDistance(hand[0], hand[e]));
     })
     if (dists[2] < 10 && dists[3] < 10) {
-      if (dists[0] < 10 && dists[1] < 10) {
-        newSign = 0;
-      } else if (dists[0] > 15 && dists[1] > 15) {
-        newSign = 1;
-      }
+      if (dists[0] < 10 && dists[1] < 10) newSign = 0;
+      else if (dists[0] > 15 && dists[1] > 15) newSign = 1;
     } else {
-      if (dists.filter((e) => e > 15).length === 4) {
-        newSign = 2;
-      }
+      if (dists.filter((e) => e > 15).length === 4) newSign = 2;
     }
     if (newSign !== -1 && newSign !== last) {
       if (!firstSign) {
@@ -104,10 +88,10 @@ const hands = new Hands({locateFile: (file) => {
   return `https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.1/${file}`;
 }});
 hands.setOptions({
-  maxNumHands: 2,
+  maxNumHands: 1,
   modelComplexity: 1,
-  minDetectionConfidence: 0.9,
-  minTrackingConfidence: 0.9
+  minDetectionConfidence: 0.7,
+  minTrackingConfidence: 0.7
 });
 hands.onResults(onResults);
 
