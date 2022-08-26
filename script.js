@@ -24,10 +24,10 @@ function getDistance(pos1, pos2) {
 
 function getComputer() {
   time--;
-  if (time > 0) {
+  if (time >= 0) {
     computerImg.remove();
     computer.innerText = time + 1;
-  } else if (time === 0) {
+  } else if (time === -1) {
     computer.innerText = '';
     const computerSign = Math.floor(Math.random() * 3);
     computerImg.src = `./img/${signs[computerSign]}.png`;
